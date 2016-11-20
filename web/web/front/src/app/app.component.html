@@ -1,0 +1,144 @@
+<div class="center-wrapper">
+  <div class="search">
+    <div class="title">
+      <img src="assets/logo.png" height="70" style="margin-bottom: -20px" /> Will I be late?
+    </div>
+    <form class="search-div" (ngSubmit)="submit()">
+      <div class="form-input">
+        <div class="label">
+          From:
+        </div>
+        <input type="text" name="from" [(ngModel)]="from" class="input" autofocus="autofocus" />
+      </div>
+      <div class="form-input">
+        <div class="label">
+          To:
+        </div>
+        <input type="text" name="to" [(ngModel)]="to" class="input" />
+      </div>
+      <div class="form-input">
+        <div class="label">
+          Date:
+        </div>
+        <input type="text" name="date" [(ngModel)]="date" class="input"/>
+      </div>
+      <div class="form-input">
+        <input type="submit" class="input-submit" value="Let me know!" *ngIf="!query" />
+        <div *ngIf="query" class="loading">Computation in progress...</div>
+      </div>
+    </form>
+  </div>
+
+  <div class="results">
+    <div class="result" *ngFor="let result of results; let la = last" [ngClass]="la && 'last' || ''"  (click)="result.showStats = !result.showStats">
+      <div class="times">
+        <div class="time-departure">
+          {{ result.departureTime }} (+ 3min)
+        </div>
+        <div class="time-arrival">
+          {{ result.arrivalTime }} (+ 10min)
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="tl-start"></div>
+        <div class="tl-stop"></div>
+      </div>
+      <div class="stats" *ngIf="result.showStats">
+        <div class="chart">
+          <div appGraph [data]="result.stats['2months']" *ngIf="result.stats['2months']"></div>
+          Delay day after day
+        </div>
+        <div class="chart">
+          <div appGraph [data]="result.stats.dayofweek" *ngIf="result.stats.dayofweek"></div>
+          Delay per day of week
+        </div>
+        <div class="numbers" *ngIf="result.stats.numbers">
+          <div class="number">
+            <div class="big">{{ ceil(result.stats.numbers.nless3/result.stats.numbers.total*100) }}%</div>
+            <div class="small">&lt; 3min</div>
+          </div>
+          <div class="number">
+            <div class="big">{{ result.stats.numbers.maxdelay }} min</div>
+            <div class="small">max delay</div>
+          </div>
+          <div class="number">
+            <div class="big">{{ stri(result.stats.numbers.ncanceled) }}</div>
+            <div class="small">canceled</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="results">
+    <div class="result">
+      <div class="times">
+        <div class="time-departure">
+          12:43 (+ 3min)
+        </div>
+        <div class="time-arrival">
+          14:20 (+ 10min)
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="tl-start"></div>
+        <div class="tl-point"></div>
+        <div class="tl-stop"></div>
+      </div>
+    </div>
+    <div class="result">
+      <div class="times">
+        <div class="time-departure">
+          13:20 (+ 0min)
+        </div>
+        <div class="time-arrival">
+          16:15 (+ 2min)
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="tl-start"></div>
+        <div class="tl-point" style="margin-right: 40px; margin-left: 40px;"></div>
+        <div class="tl-point"></div>
+        <div class="tl-stop"></div>
+      </div>
+    </div>
+    <div class="result last" (click)="showStats = 1">
+      <div class="times">
+        <div class="time-departure">
+          14:07 (+ 5min)
+        </div>
+        <div class="time-arrival">
+          16:36 (- 1min)
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="tl-start"></div>
+        <div class="tl-stop"></div>
+      </div>
+      <div class="stats" *ngIf="showStats">
+        <div class="chart">
+          <div appGraph [vv]="1"></div>
+          Delay day after day
+        </div>
+        <div class="chart">
+          <div appGraph [vv]="2"></div>
+          Delay per day of week
+        </div>
+        <div class="numbers">
+          <div class="number">
+            <div class="big">83%</div>
+            <div class="small">&lt; 3min</div>
+          </div>
+          <div class="number">
+            <div class="big">15min</div>
+            <div class="small">max delayed</div>
+          </div>
+          <div class="number">
+            <div class="big">2</div>
+            <div class="small">cancelled</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+</div>

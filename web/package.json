@@ -1,0 +1,17 @@
+{
+  "name": "lauzhack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "merge-files.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Basile Bruneau <basilebruneau@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.17.2",
+    "moment": "^2.16.0",
+    "request": "^2.79.0",
+    "request-promise": "^4.1.1"
+  }
+}

@@ -1,0 +1,133 @@
+.center-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.search {
+  width: 520px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+}
+.search .title {
+  font-family: 'Raleway';
+  text-align: center;
+  font-size: 40px;
+  margin: 60px;
+  margin-bottom: 40px;
+}
+.search-div {
+  border-top: 1px solid white;
+}
+.form-input {
+  display: flex;
+  flex-direction: row;
+}
+.form-input .label {
+  width: 70px;
+  padding: 20px;
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.form-input input {
+  flex: 1;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  padding: 10px;
+  font-family: -apple-system, BlinkMacSystemFont;
+  font-size: 20px;
+  text-transform: uppercase;
+  color: #dddddd;
+}
+.form-input .loading {
+  text-align: center;
+  color: #dddddd;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-style: italic;
+  flex: 1;
+  padding: 20px;
+}
+.form-input input.input-submit {
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+.form-input input:focus {
+  outline: none;
+}
+
+.results {
+  width: 520px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  margin-top: 60px;
+}
+.result {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid white;
+  padding: 30px;
+}
+.result.last {
+  border-bottom: none !important;
+}
+.result .times {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.result .timeline {
+  border-bottom: 3px solid white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.timeline .tl-start, .timeline .tl-stop {
+  background-color: white;
+  height: 10px;
+  width: 3px;
+  margin-bottom: -6px;
+}
+.timeline .tl-point {
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  margin-bottom: -7px;
+  background-color: white;
+}
+.result .stats {
+  margin-top: 30px;
+}
+.stats .chart {
+  margin-bottom: 30px;
+  text-align: center;
+}
+.stats .numbers {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+.numbers .number {
+  text-align: center;
+}
+.numbers .number .big {
+  font-size: 30px;
+  font-weight: bold;
+}
+@media screen and (max-width: 640px) {
+  .search {
+    width: 100%;
+  }
+  .results {
+    width: 100%;
+  }
+  .search .title {
+    margin: 20px;
+    margin-right: 0px;
+    margin-left: 0px;
+  }
+}

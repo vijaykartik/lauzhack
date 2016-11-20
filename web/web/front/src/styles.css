@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,900');
+@import "app/app.component.css";
+@import "../node_modules/rickshaw/rickshaw.min.css";
+
+body {
+  background-image: url('assets/bg.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  font-family: -apple-system, BlinkMacSystemFont;
+}
+.rickshaw_graph .detail .x_label {
+  background: none !important;
+}
