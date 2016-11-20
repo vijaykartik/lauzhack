@@ -1,0 +1,7 @@
+.DS_Store
+*.~
+*.pdf
+*.zip
+data/
+matlab/
+pyowm/
